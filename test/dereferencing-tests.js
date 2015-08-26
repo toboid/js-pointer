@@ -16,3 +16,17 @@ it('dereferences root document', function () {
 
   expect(result).to.deep.equal(doc);
 });
+
+it('dereferences first level node', function () {
+  var doc = {
+    name: {
+      firstName: 'Joe',
+      secondName: 'Smith'
+    }
+  },
+  pointer = 'name';
+
+  var result = jsonPointer.deref(pointer, doc);
+
+  expect(result).to.deep.equal(doc.name);
+});
