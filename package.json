@@ -1,0 +1,21 @@
+{
+  "name": "json-pointer",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:toby_s/json-pointer.git"
+  },
+  "keywords": [
+    "json-pointer",
+    "json-reference",
+    "json-schema",
+    "node"
+  ],
+  "author": "Toboid",
+  "license": "MIT"
+}
