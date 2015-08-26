@@ -5,9 +5,14 @@ require('babel/register')({ only: /tests/ });
 var babel = require('gulp-babel'),
     eslint = require('gulp-eslint'),
     gulp = require('gulp'),
-    mocha = require('gulp-mocha');
+    mocha = require('gulp-mocha'),
+    del = require('del');
 
-gulp.task('babel', function () {
+gulp.task('clean:lib', function (callback) {
+  del(['lib/**/*', '!dist/mobile/deploy.json'], callback);
+});
+
+gulp.task('babel', ['clean:lib'], function () {
   return gulp.src('src/*.js')
     .pipe(babel())
     .pipe(gulp.dest('lib'));
