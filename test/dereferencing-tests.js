@@ -30,3 +30,19 @@ it('dereferences first level node', function () {
 
   expect(result).to.deep.equal(doc.name);
 });
+
+it('dereferences nested node', function () {
+  var doc = {
+    person: {
+      name: {
+        firstName: 'Joe',
+        secondName: 'Smith'
+      }
+    }
+  },
+  pointer = 'person/name/firstName';
+
+  var result = jsonPointer.deref(pointer, doc);
+
+  expect(result).to.deep.equal(doc.person.name.firstName);
+});
