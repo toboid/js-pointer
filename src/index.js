@@ -12,16 +12,10 @@ function deref (pointer, doc) {
   }
 
   var context = doc;
-
-  segments.forEach(function (segment) {
-    context = context[segment];
-  });
-
+  segments.forEach((segment) => { context = context[segment]; });
   return context;
 }
 
 function compact (collection) {
-  return collection.filter(function (item) {
-    return item;
-  });
+  return collection.filter((item) => item);
 }

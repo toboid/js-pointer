@@ -4,6 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
+    "prepublish": "gulp babel",
     "test": "gulp test"
   },
   "repository": {
@@ -20,8 +21,11 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-eslint": "^4.1.0",
     "chai": "^3.0.0",
     "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
     "gulp-eslint": "^0.13.2",
     "gulp-mocha": "^2.1.1",
     "mocha": "^2.2.5"
