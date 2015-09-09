@@ -1,10 +1,10 @@
 'use strict';
 
-var jsonPointer = require('../lib');
-var expect = require('chai').expect;
+const jsonPointer = require('../lib');
+const expect = require('chai').expect;
 
 it('dereferences root document', function () {
-  var doc = {
+  const doc = {
     name: {
       firstName: 'Joe',
       secondName: 'Smith'
@@ -12,13 +12,13 @@ it('dereferences root document', function () {
   },
   pointer = '';
 
-  var result = jsonPointer.deref(pointer, doc);
+  const result = jsonPointer.deref(pointer, doc);
 
   expect(result).to.deep.equal(doc);
 });
 
 it('dereferences first level node', function () {
-  var doc = {
+  const doc = {
     name: {
       firstName: 'Joe',
       secondName: 'Smith'
@@ -26,13 +26,13 @@ it('dereferences first level node', function () {
   },
   pointer = 'name';
 
-  var result = jsonPointer.deref(pointer, doc);
+  const result = jsonPointer.deref(pointer, doc);
 
   expect(result).to.deep.equal(doc.name);
 });
 
 it('dereferences nested node', function () {
-  var doc = {
+  const doc = {
     person: {
       name: {
         firstName: 'Joe',
@@ -42,7 +42,7 @@ it('dereferences nested node', function () {
   },
   pointer = 'person/name/firstName';
 
-  var result = jsonPointer.deref(pointer, doc);
+  const result = jsonPointer.deref(pointer, doc);
 
   expect(result).to.deep.equal(doc.person.name.firstName);
 });
