@@ -1,10 +1,8 @@
-// TODO rename deref to get
 module.exports = {
-  deref: deref
+  get: get
 }
 
-// TODO put the doc first
-function deref (pointer, doc) {
+function get (doc, pointer) {
   const segments = compact(pointer.split('/'))
   return traverse(doc, segments)
 }
