@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "node_modules/standard/bin/cmd.js",
-    "precompile": "rm -R lib/",
+    "precompile": "rm -fR lib/",
     "compile": "node_modules/babel/bin/babel.js src --out-dir lib",
     "pretest": "npm run compile",
     "test": "node_modules/mocha/bin/mocha --harmony",
