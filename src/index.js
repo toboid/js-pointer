@@ -1,5 +1,6 @@
 'use strict';
 
+// TODO rename deref to get
 module.exports = {
   deref: deref
 };

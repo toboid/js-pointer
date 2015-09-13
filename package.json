@@ -4,8 +4,13 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepublish": "gulp babel",
-    "test": "gulp test"
+    "lint": "node_modules/standard/bin/cmd.js",
+    "precompile": "rm -R lib/",
+    "compile": "node_modules/babel/bin/babel.js src --out-dir lib",
+    "pretest": "npm run compile",
+    "test": "node_modules/mocha/bin/mocha --harmony",
+    "watch": "node_modules/watch/cli.js 'npm test' src test",
+    "prepublish": "npm compile"
   },
   "repository": {
     "type": "git",
@@ -22,13 +27,9 @@
   "dependencies": {},
   "devDependencies": {
     "babel": "^5.8.21",
-    "babel-eslint": "^4.1.0",
     "chai": "^3.0.0",
-    "del": "^1.2.1",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1",
-    "gulp-eslint": "^0.13.2",
-    "gulp-mocha": "^2.1.1",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "standard": "^5.2.2",
+    "watch": "^0.16.0"
   }
 }
