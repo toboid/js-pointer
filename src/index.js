@@ -9,7 +9,8 @@ function get (doc, pointer) {
 function traverse (doc, tokens) {
   if (!tokens.length) return doc
 
-  return traverse(doc[first(tokens)], rest(tokens))
+  const next = tokens.shift()
+  return traverse(doc[next], tokens)
 }
 
 function parse (pointer) {
