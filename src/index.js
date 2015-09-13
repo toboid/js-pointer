@@ -3,20 +3,32 @@ module.exports = {
 }
 
 function get (doc, pointer) {
-  const segments = compact(pointer.split('/'))
-  return traverse(doc, segments)
+  return traverse(doc, parse(pointer))
 }
 
 function traverse (doc, segments) {
   if (!segments.length) return doc
 
-  return traverse(doc[first(segments)], segments.slice(1))
+  return traverse(doc[first(segments)], rest(segments))
 }
 
-function compact (collection) {
-  return collection.filter((item) => item)
+function parse (pointer) {
+  if (pointer === '') return []
+
+  if (!(first(pointer) === '/')) {
+    const err = new Error('Non-empty pointer must start with "/"')
+    err.name = 'InvalidPointerError'
+    throw err
+  }
+
+  return rest(pointer.split('/'))
 }
 
 function first (arr) {
   return arr[0]
 }
+
+function rest (arr) {
+  return arr.slice(1)
+}
+

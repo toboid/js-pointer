@@ -5,9 +5,16 @@ const expect = require('chai').expect
 
 describe('get()', function () {
   it('dereferences arbitrary length pointer', function () {
-    const testDoc = { one: { two: { three: [{ four: 4 }] } } };
+    const testDoc = { one: { two: { three: [{ four: 4 }] } } }
     const result = jsonPointer.get(testDoc, '/one/two/three/0/four')
     expect(result).to.deep.equal(4)
+  })
+
+  describe('validation', function () {
+    it('throws for pointers not beginning with "/"', function () {
+      const expectedErrorMatcher = /Non-empty pointer must start with "\/"/
+      expect(() => jsonPointer.get({}, 'one')).to.throw(Error, expectedErrorMatcher)
+    })
   })
 
   describe('rfc6901 compliance', function () {
