@@ -9,7 +9,7 @@
     "compile": "node_modules/babel/bin/babel.js src --out-dir lib",
     "pretest": "npm run compile",
     "test": "node_modules/mocha/bin/mocha --harmony",
-    "watch": "node_modules/watch/cli.js 'npm test' src test",
+    "watch": "node_modules/watch/cli.js 'npm run lint && npm test' src test",
     "prepublish": "npm compile"
   },
   "repository": {
@@ -31,5 +31,8 @@
     "mocha": "^2.2.5",
     "standard": "^5.2.2",
     "watch": "^0.16.0"
+  },
+  "standard": {
+    "globals": [ "describe", "it" ]
   }
 }
