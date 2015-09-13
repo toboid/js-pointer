@@ -6,10 +6,10 @@ function get (doc, pointer) {
   return traverse(doc, parse(pointer))
 }
 
-function traverse (doc, segments) {
-  if (!segments.length) return doc
+function traverse (doc, tokens) {
+  if (!tokens.length) return doc
 
-  return traverse(doc[first(segments)], rest(segments))
+  return traverse(doc[first(tokens)], rest(tokens))
 }
 
 function parse (pointer) {
@@ -21,7 +21,7 @@ function parse (pointer) {
     throw err
   }
 
-  return rest(pointer.split('/'))
+  return rest(pointer.split('/')).map(unescape)
 }
 
 function first (arr) {
@@ -30,5 +30,9 @@ function first (arr) {
 
 function rest (arr) {
   return arr.slice(1)
+}
+
+function unescape (token) {
+  return token.replace('~1', '/').replace('~0', '~')
 }
 

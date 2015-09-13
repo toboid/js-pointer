@@ -37,7 +37,15 @@ describe('get()', function () {
       { pointer: '', expected: testDoc },
       { pointer: '/foo', expected: ['bar', 'baz'] },
       { pointer: '/foo/0', expected: 'bar' },
-      { pointer: '/', expected: 0 }
+      { pointer: '/', expected: 0 },
+      { pointer: '/a~1b', expected: 1 },
+      { pointer: '/c%d', expected: 2 },
+      { pointer: '/e^f', expected: 3 },
+      { pointer: '/g|h', expected: 4 },
+      { pointer: '/i\\j', expected: 5 },
+      { pointer: '/k\"l', expected: 6 },
+      { pointer: '/ ', expected: 7 },
+      { pointer: '/m~0n', expected: 8 }
     ]
 
     tests.forEach(function (test) {
