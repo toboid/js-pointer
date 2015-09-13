@@ -16,21 +16,13 @@ function traverse (doc, tokens) {
 function parse (pointer) {
   if (pointer === '') return []
 
-  if (!(first(pointer) === '/')) {
+  if (!(pointer[0] === '/')) {
     const err = new Error('Non-empty pointer must start with "/"')
     err.name = 'InvalidPointerError'
     throw err
   }
 
-  return rest(pointer.split('/')).map(unescape)
-}
-
-function first (arr) {
-  return arr[0]
-}
-
-function rest (arr) {
-  return arr.slice(1)
+  return pointer.split('/').slice(1).map(unescape)
 }
 
 function unescape (token) {
