@@ -4,18 +4,22 @@ module.exports = {
   deref: deref
 };
 
+// TODO put the doc first
 function deref (pointer, doc) {
   const segments = compact(pointer.split('/'));
+  return traverse(doc, segments);
+}
 
-  if(segments.length === 0) {
-    return doc;
-  }
+function traverse (doc, segments) {
+  if(!segments.length) return doc;
 
-  let context = doc;
-  segments.forEach((segment) => { context = context[segment]; });
-  return context;
+  return traverse(doc[first(segments)], segments.slice(1));
 }
 
 function compact (collection) {
   return collection.filter((item) => item);
+}
+
+function first (arr) {
+  return arr[0];
 }
