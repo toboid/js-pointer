@@ -10,6 +10,12 @@ describe('get()', function () {
     expect(result).to.deep.equal(4)
   })
 
+  it('returns undefined when pointer references nonexistent value', function () {
+    const testDoc = { one: 1 }
+    const result = jsonPointer.get(testDoc, '/two')
+    expect(result).to.be.undefined
+  })
+
   describe('validation', function () {
     it('throws for pointers not beginning with "/"', function () {
       const expectedErrorMatcher = /Non-empty pointer must start with "\/"/
