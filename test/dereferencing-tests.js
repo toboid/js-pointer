@@ -10,7 +10,7 @@ describe('get()', function () {
     expect(result).to.deep.equal(4)
   })
 
-  it('returns undefined when pointer references nonexistent value', function () {
+  it('returns undefined when pointer references non-existent value', function () {
     const testDoc = { one: 1 }
     const result = jsonPointer.get(testDoc, '/two')
     expect(result).to.be.undefined
