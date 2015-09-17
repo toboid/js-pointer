@@ -8,8 +8,10 @@
     "precompile": "rm -f dist/*",
     "compile": "babel lib --out-dir dist",
     "pretest": "npm run compile",
-    "test": "mocha --harmony",
+    "test": "mocha --harmony --require blanket",
+    "coverage": "npm test -- -R travis-cov",
     "watch": "watch 'npm run lint && npm test' lib test",
+    "ci": "npm run lint && npm run coverage",
     "prepublish": "npm run compile"
   },
   "repository": {
@@ -27,12 +29,21 @@
   "dependencies": {},
   "devDependencies": {
     "babel": "^5.8.21",
+    "blanket": "^1.1.7",
     "chai": "^3.0.0",
     "mocha": "^2.2.5",
     "standard": "^5.2.2",
+    "travis-cov": "^0.2.5",
     "watch": "^0.16.0"
   },
   "standard": {
-    "globals": [ "describe", "it" ]
+    "globals": [
+      "describe",
+      "it"
+    ]
+  },
+  "config": {
+    "blanket": { "pattern": "dist" },
+    "travis-cov": { "threshold": 100 }
   }
 }
