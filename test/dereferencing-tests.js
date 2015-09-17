@@ -1,6 +1,6 @@
 'use strict'
 
-const jsonPointer = require('../lib')
+const jsonPointer = require('../dist')
 const expect = require('chai').expect
 
 describe('get()', function () {
