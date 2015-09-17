@@ -8,8 +8,8 @@
     "precompile": "rm -f dist/*",
     "compile": "babel lib --out-dir dist",
     "pretest": "npm run compile",
-    "test": "mocha --require blanket",
-    "coverage": "npm test -- -R travis-cov",
+    "test": "mocha",
+    "coverage": "npm test -- --require blanket -R travis-cov",
     "watch": "watch 'npm run lint && npm test' lib test",
     "ci": "npm run lint && npm run coverage",
     "prepublish": "npm run compile"
