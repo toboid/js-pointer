@@ -4,13 +4,13 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "node_modules/standard/bin/cmd.js",
+    "lint": "standard",
     "precompile": "rm -f dist/*",
-    "compile": "node_modules/babel/bin/babel.js lib --out-dir dist",
+    "compile": "babel lib --out-dir dist",
     "pretest": "npm run compile",
-    "test": "node_modules/mocha/bin/mocha --harmony",
-    "watch": "node_modules/watch/cli.js 'npm run lint && npm test' src test",
-    "prepublish": "npm compile"
+    "test": "mocha --harmony",
+    "watch": "watch 'npm run lint && npm test' lib test",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
