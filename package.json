@@ -18,10 +18,10 @@
     "url": "git@bitbucket.org:toby_s/js-pointer.git"
   },
   "keywords": [
+    "RFC6901",
     "json-pointer",
     "json-reference",
-    "json-schema",
-    "node"
+    "json-schema"
   ],
   "author": "Toboid",
   "license": "MIT",
