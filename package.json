@@ -23,6 +23,9 @@
     "json-reference",
     "json-schema"
   ],
+  "engines" : {
+    "node" : ">=0.10.40"
+  },
   "author": "Toboid",
   "license": "MIT",
   "dependencies": {},
