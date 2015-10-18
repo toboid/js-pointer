@@ -1,6 +1,6 @@
 {
   "name": "js-pointer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Tiny, spec compliant JSON Pointer RFC 6901 implementation.",
   "main": "dist/index.js",
   "scripts": {
@@ -23,8 +23,8 @@
     "json-reference",
     "json-schema"
   ],
-  "engines" : {
-    "node" : ">=0.10.40"
+  "engines": {
+    "node": ">=0.10.40"
   },
   "author": "Toboid",
   "license": "MIT",
