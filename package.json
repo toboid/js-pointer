@@ -1,6 +1,6 @@
 {
   "name": "js-pointer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tiny, spec compliant JSON Pointer RFC 6901 implementation.",
   "main": "dist/index.js",
   "scripts": {
@@ -44,8 +44,12 @@
   "config": {
     "blanket": {
       "pattern": "lib",
-      "data-cover-never": ["node_modules"]
+      "data-cover-never": [
+        "node_modules"
+      ]
     },
-    "travis-cov": { "threshold": 100 }
+    "travis-cov": {
+      "threshold": 100
+    }
   }
 }
