@@ -1,7 +1,7 @@
 {
-  "name": "json-pointer",
+  "name": "js-pointer",
   "version": "0.0.1",
-  "description": "",
+  "description": "Tiny, spec compliant JSON Pointer RFC 6901 implementation.",
   "main": "dist/index.js",
   "scripts": {
     "lint": "standard",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:toby_s/json-pointer.git"
+    "url": "git@bitbucket.org:toby_s/js-pointer.git"
   },
   "keywords": [
     "json-pointer",
