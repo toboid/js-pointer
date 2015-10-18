@@ -7,12 +7,10 @@
     "lint": "standard",
     "precompile": "rm -f dist/*",
     "compile": "babel lib --out-dir dist",
-    "pretest": "npm run compile",
-    "test": "mocha",
-    "precoverage": "npm run compile",
-    "coverage": "mocha --require blanket -R travis-cov",
+    "test": "mocha --compilers js:babel/register test",
+    "coverage": "mocha --compilers js:babel/register --require blanket -R travis-cov test",
     "watch": "watch 'npm run lint && npm test' lib test",
-    "ci": "npm run lint && npm run coverage",
+    "ci": "npm run lint && npm test && npm run coverage",
     "prepublish": "npm run compile"
   },
   "repository": {
@@ -44,7 +42,10 @@
     ]
   },
   "config": {
-    "blanket": { "pattern": "dist" },
+    "blanket": {
+      "pattern": "lib",
+      "data-cover-never": ["node_modules"]
+    },
     "travis-cov": { "threshold": 100 }
   }
 }
