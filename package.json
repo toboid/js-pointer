@@ -9,8 +9,9 @@
     "coverage": "nyc --require babel-core/register --reporter=lcov mocha ./test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "standard",
     "test": "nyc --check-coverage --require babel-core/register mocha ./test",
+    "test-dist": "TEST_TARGET=dist mocha --require babel-core/register",
     "watch": "chokidar 'lib/*.js' 'test/*.js' -c 'npm run lint && npm test'",
-    "ci": "npm run lint && npm test && npm run coverage",
+    "ci": "npm run lint && npm run compile && npm test-dist && npm run coverage",
     "prepublish": "npm run compile"
   },
   "repository": {
