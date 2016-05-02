@@ -29,7 +29,7 @@ Returns sub-object or value in `object` referred to by `pointer`.
 If `pointer` does not refer to an object or value then `undefined` will be returned.
 
 ### object
-Plain object targeted by the pointer
+Plain **object** targeted by the pointer
 
 ### pointer
-**string** JSON pointer
+**string** JSON pointer. A pointer beginning with `#` indicates a URI fragment, which will be URI decoded before processing.

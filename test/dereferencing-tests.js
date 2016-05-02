@@ -17,11 +17,30 @@ describe('get()', function () {
     expect(result).to.be.undefined
   })
 
+  it('decodes fragment pointer', function () {
+    const testDoc = { 'c%d': 1 }
+    const result = jsonPointer.get(testDoc, '#/c%25d')
+    expect(result).to.eql(1)
+  })
+
+  it('does not uri decode none-fragment pointer', function () {
+    const testDoc = { 'c%25d': 1 }
+    const result = jsonPointer.get(testDoc, '/c%25d')
+    expect(result).to.eql(1)
+  })
+
   describe('validation', function () {
-    it('throws for pointers not beginning with "/"', function () {
-      const expectedErrorMatcher = /Non-empty pointer must start with "\/"/
+    it('throws for none-empty pointers not beginning with "/"', function () {
+      const expectedErrorMatcher = /Pointer "one" is invalid/
       expect(function () {
         jsonPointer.get({}, 'one')
+      }).to.throw(Error, expectedErrorMatcher)
+    })
+
+    it('throws for non-empty fragment pointers not beginning with "#/"', function () {
+      const expectedErrorMatcher = /Pointer "#one" is invalid/
+      expect(function () {
+        jsonPointer.get({}, '#one')
       }).to.throw(Error, expectedErrorMatcher)
     })
   })
@@ -55,7 +74,19 @@ describe('get()', function () {
       { pointer: '/i\\j', expected: 5 },
       { pointer: '/k\"l', expected: 6 },
       { pointer: '/ ', expected: 7 },
-      { pointer: '/m~0n', expected: 8 }
+      { pointer: '/m~0n', expected: 8 },
+      { pointer: '#', expected: testDoc },
+      { pointer: '#/foo', expected: ['bar', 'baz'] },
+      { pointer: '#/foo/0', expected: 'bar' },
+      { pointer: '#/', expected: 0 },
+      { pointer: '#/a~1b', expected: 1 },
+      { pointer: '#/c%25d', expected: 2 },
+      { pointer: '#/e%5Ef', expected: 3 },
+      { pointer: '#/g%7Ch', expected: 4 },
+      { pointer: '#/i%5Cj', expected: 5 },
+      { pointer: '#/k%22l', expected: 6 },
+      { pointer: '#/%20', expected: 7 },
+      { pointer: '#/m~0n', expected: 8 }
     ]
     /* eslint-enable no-useless-escape */
 
