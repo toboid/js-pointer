@@ -7,7 +7,7 @@
     "precompile": "rm -f dist/*",
     "compile": "babel lib --out-dir dist",
     "coverage": "nyc --require babel-core/register --reporter=lcov mocha ./test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "lint": "standard",
+    "lint": "eslint 'lib/**' 'test/**'",
     "test": "nyc --check-coverage --require babel-core/register mocha ./test",
     "test-dist": "TEST_TARGET=dist mocha --require babel-core/register",
     "watch": "chokidar 'lib/*.js' 'test/*.js' -c 'npm run lint && npm test'",
@@ -38,10 +38,10 @@
     "chai": "^3.5.0",
     "chokidar-cli": "^1.2.0",
     "coveralls": "^2.11.9",
+    "eslint": "^2.9.0",
     "lodash": "^4.8.2",
     "mocha": "^2.4.5",
-    "nyc": "^6.4.0",
-    "standard": "^7.0.0"
+    "nyc": "^6.4.0"
   },
   "standard": {
     "globals": [

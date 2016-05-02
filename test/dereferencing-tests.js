@@ -1,54 +1,53 @@
-'use strict'
+'use strict';
 
-const testTarget = process.env.TEST_TARGET || 'lib'
-const jsonPointer = require('../' + testTarget)
-const expect = require('chai').expect
+const testTarget = process.env.TEST_TARGET || 'lib';
+const jsonPointer = require('../' + testTarget);
+const expect = require('chai').expect;
 
 describe('get()', function () {
   it('dereferences arbitrary length pointer', function () {
-    const testDoc = { one: { two: { three: [{ four: 4 }] } } }
-    const result = jsonPointer.get(testDoc, '/one/two/three/0/four')
-    expect(result).to.deep.equal(4)
-  })
+    const testDoc = { one: { two: { three: [{ four: 4 }] } } };
+    const result = jsonPointer.get(testDoc, '/one/two/three/0/four');
+    expect(result).to.deep.equal(4);
+  });
 
   it('returns undefined when pointer references non-existent value', function () {
-    const testDoc = { one: 1 }
-    const result = jsonPointer.get(testDoc, '/two')
-    expect(result).to.be.undefined
-  })
+    const testDoc = { one: 1 };
+    const result = jsonPointer.get(testDoc, '/two');
+    expect(result).to.be.undefined;
+  });
 
   it('decodes fragment pointer', function () {
-    const testDoc = { 'c%d': 1 }
-    const result = jsonPointer.get(testDoc, '#/c%25d')
-    expect(result).to.eql(1)
-  })
+    const testDoc = { 'c%d': 1 };
+    const result = jsonPointer.get(testDoc, '#/c%25d');
+    expect(result).to.eql(1);
+  });
 
   it('does not uri decode none-fragment pointer', function () {
-    const testDoc = { 'c%25d': 1 }
-    const result = jsonPointer.get(testDoc, '/c%25d')
-    expect(result).to.eql(1)
-  })
+    const testDoc = { 'c%25d': 1 };
+    const result = jsonPointer.get(testDoc, '/c%25d');
+    expect(result).to.eql(1);
+  });
 
   describe('validation', function () {
     it('throws for none-empty pointers not beginning with "/"', function () {
-      const expectedErrorMatcher = /Pointer "one" is invalid/
+      const expectedErrorMatcher = /Pointer "one" is invalid/;
       expect(function () {
-        jsonPointer.get({}, 'one')
-      }).to.throw(Error, expectedErrorMatcher)
-    })
+        jsonPointer.get({}, 'one');
+      }).to.throw(Error, expectedErrorMatcher);
+    });
 
     it('throws for non-empty fragment pointers not beginning with "#/"', function () {
-      const expectedErrorMatcher = /Pointer "#one" is invalid/
+      const expectedErrorMatcher = /Pointer "#one" is invalid/;
       expect(function () {
-        jsonPointer.get({}, '#one')
-      }).to.throw(Error, expectedErrorMatcher)
-    })
-  })
+        jsonPointer.get({}, '#one');
+      }).to.throw(Error, expectedErrorMatcher);
+    });
+  });
 
   describe('rfc6901 compliance', function () {
     // See https://tools.ietf.org/html/rfc6901#section-5
 
-    /* eslint-disable no-useless-escape */
     const testDoc = {
       foo: ['bar', 'baz'],
       '': 0,
@@ -60,7 +59,7 @@ describe('get()', function () {
       'k\"l': 6,
       ' ': 7,
       'm~n': 8
-    }
+    };
 
     const tests = [
       { pointer: '', expected: testDoc },
@@ -87,15 +86,14 @@ describe('get()', function () {
       { pointer: '#/k%22l', expected: 6 },
       { pointer: '#/%20', expected: 7 },
       { pointer: '#/m~0n', expected: 8 }
-    ]
-    /* eslint-enable no-useless-escape */
+    ];
 
     tests.forEach(function (test) {
       it('dereferences "' + test.pointer + '"', function () {
-        const result = jsonPointer.get(testDoc, test.pointer)
-        expect(result).to.deep.equal(test.expected)
-      })
-    })
-  })
-})
+        const result = jsonPointer.get(testDoc, test.pointer);
+        expect(result).to.deep.equal(test.expected);
+      });
+    });
+  });
+});
 
