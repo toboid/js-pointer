@@ -25,7 +25,8 @@ Please see the [spec](https://tools.ietf.org/html/rfc6901) and [tests](https://g
 ## API
 `jsPointer.get(object, pointer)`
 
-returns sub-object or value in `object` referred to by `pointer`
+Returns sub-object or value in `object` referred to by `pointer`.
+If `pointer` does not refer to an object or value then `undefined` will be returned.
 
 ### object
 Plain object targeted by the pointer
