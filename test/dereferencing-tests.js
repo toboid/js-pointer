@@ -29,6 +29,7 @@ describe('get()', function () {
   describe('rfc6901 compliance', function () {
     // See https://tools.ietf.org/html/rfc6901#section-5
 
+    /* eslint-disable no-useless-escape */
     const testDoc = {
       foo: ['bar', 'baz'],
       '': 0,
@@ -56,6 +57,7 @@ describe('get()', function () {
       { pointer: '/ ', expected: 7 },
       { pointer: '/m~0n', expected: 8 }
     ]
+    /* eslint-enable no-useless-escape */
 
     tests.forEach(function (test) {
       it('dereferences "' + test.pointer + '"', function () {
