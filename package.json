@@ -41,7 +41,7 @@
     "lodash": "^4.8.2",
     "mocha": "^2.4.5",
     "nyc": "^6.4.0",
-    "standard": "^6.0.8"
+    "standard": "^7.0.0"
   },
   "standard": {
     "globals": [
