@@ -17,19 +17,22 @@ Install via NPM
 var jsPointer = require('js-pointer');
 
 var object = { one: { two: 3 } }
-jsonPointer.get(object, '/one/two') // returns 3
+jsonPointer.get(object, '/one/two')
+// → 3
 
 ```
 ### Pointing to array elements
 ``` javascript
 var object = { one: { two: [3] } }
-jsonPointer.get(object, '/one/two/0') // returns 3
+jsonPointer.get(object, '/one/two/0')
+// → 3
 ```
 
 ### Pointing through array elements
 ``` javascript
 var object = { one: { two: [{ three: 4 }] } }
-jsonPointer.get(object, '/one/two/0/three') // returns 4
+jsonPointer.get(object, '/one/two/0/three')
+// → 4
 ```
 
 Please see the [spec](https://tools.ietf.org/html/rfc6901) and [tests](https://github.com/toboid/js-pointer/blob/master/test/dereferencing-tests.js) for further detail of the JSON pointer format.
