@@ -6,7 +6,7 @@
   "scripts": {
     "precompile": "rm -f dist/*",
     "compile": "babel lib --out-dir dist",
-    "coverage": "NODE_ENV=coverage nyc --require babel-register --source-map false --instrument false --reporter=lcov mocha ./test && cat ./coverage/lcov.info | coveralls",
+    "coverage": "BABEL_ENV=coverage nyc --require babel-register --source-map false --instrument false --reporter=lcov mocha ./test && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint 'lib/**' 'test/**'",
     "test": "nyc --check-coverage --require babel-register mocha ./test",
     "test-dist": "TEST_TARGET=dist mocha --require babel-register",
