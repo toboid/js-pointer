@@ -42,7 +42,7 @@
     "eslint": "^3.0.0",
     "eslint-config-toboid": "^1.0.1",
     "lodash": "^4.8.2",
-    "mocha": "^2.5.3",
+    "mocha": "^3.0.0",
     "nyc": "^7.0.0"
   }
 }
