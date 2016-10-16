@@ -6,13 +6,14 @@
   "scripts": {
     "precompile": "rm -f dist/*",
     "compile": "babel lib --out-dir dist",
-    "coverage": "BABEL_ENV=coverage nyc --require babel-register --source-map false --instrument false --reporter=lcov mocha ./test && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint 'lib/**' 'test/**'",
     "test": "nyc --check-coverage --require babel-register mocha ./test",
     "test-dist": "TEST_TARGET=dist mocha --require babel-register",
+    "test-with-coverage": "BABEL_ENV=coverage nyc --require babel-register --source-map false --instrument false npm run test-dist",
     "watch": "chokidar 'lib/*.js' 'test/*.js' -c 'npm run lint && npm test'",
-    "ci": "npm run lint && npm run compile && npm run test-dist && npm run coverage",
-    "prepublish": "npm run compile"
+    "ci": "npm run lint && npm run compile && npm run test-with-coverage",
+    "prepublish": "npm run compile",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
