@@ -26,7 +26,7 @@
     "json-schema"
   ],
   "engines": {
-    "node": ">=0.10.40"
+    "node": ">= 4"
   },
   "author": "Toboid",
   "license": "MIT",
