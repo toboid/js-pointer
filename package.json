@@ -42,7 +42,7 @@
     "coveralls": "^2.11.9",
     "eslint": "^3.0.0",
     "eslint-config-toboid": "^1.0.1",
-    "lodash": "^4.16.0",
+    "lodash": "^4.17.1",
     "mocha": "^3.0.0",
     "nyc": "^9.0.1"
   }
