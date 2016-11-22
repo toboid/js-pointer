@@ -14,24 +14,24 @@ Install via NPM
 
 ### Point to object properties
 ``` javascript
-var jsPointer = require('js-pointer');
+const jsPointer = require('js-pointer');
 
-var object = { one: { two: 3 } }
-jsonPointer.get(object, '/one/two')
+const object = { one: { two: 3 } }
+jsPointer.get(object, '/one/two')
 // → 3
 
 ```
 ### Pointing to array elements
 ``` javascript
-var object = { one: { two: [3] } }
-jsonPointer.get(object, '/one/two/0')
+const object = { one: { two: [3] } }
+jsPointer.get(object, '/one/two/0')
 // → 3
 ```
 
 ### Pointing through array elements
 ``` javascript
-var object = { one: { two: [{ three: 4 }] } }
-jsonPointer.get(object, '/one/two/0/three')
+const object = { one: { two: [{ three: 4 }] } }
+jsPointer.get(object, '/one/two/0/three')
 // → 4
 ```
 
