@@ -29,6 +29,18 @@ describe('get()', function () {
     expect(result).to.eql(1);
   });
 
+  it('unescapes multiple occurrences of /', function () {
+    const testDoc = { '/one/': 1 };
+    const result = jsonPointer.get(testDoc, '/~1one~1');
+    expect(result).to.eql(1);
+  });
+
+  it('unescapes multiple occurrences of ~', function () {
+    const testDoc = { '~one~': 1 };
+    const result = jsonPointer.get(testDoc, '/~0one~0');
+    expect(result).to.eql(1);
+  });
+
   describe('validation', function () {
     it('throws for none-empty pointers not beginning with "/"', function () {
       const expectedErrorMatcher = /Pointer "one" is invalid/;
