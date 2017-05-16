@@ -1,4 +1,6 @@
 # js-pointer
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/toboid/js-pointer.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/toboid/js-pointer.svg?branch=master)](https://travis-ci.org/toboid/js-pointer)
 [![Coverage Status](https://coveralls.io/repos/github/toboid/js-pointer/badge.svg?branch=master)](https://coveralls.io/github/toboid/js-pointer?branch=master)
 [![Dependencies](https://david-dm.org/toboid/js-pointer.svg)](https://github.com/toboid/js-pointer/blob/master/package.json)
