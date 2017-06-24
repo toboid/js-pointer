@@ -60,6 +60,10 @@ describe('get()', function () {
   describe('rfc6901 compliance', function () {
     // See https://tools.ietf.org/html/rfc6901#section-5
 
+    // eslint no-useless-escape rule disabled for some lines
+    // as theses checks are taken straight from the spec so
+    // don't want to change them.
+
     const testDoc = {
       foo: ['bar', 'baz'],
       '': 0,
@@ -68,7 +72,7 @@ describe('get()', function () {
       'e^f': 3,
       'g|h': 4,
       'i\\j': 5,
-      'k\"l': 6,
+      'k\"l': 6,    // eslint-disable-line no-useless-escape
       ' ': 7,
       'm~n': 8
     };
@@ -83,7 +87,7 @@ describe('get()', function () {
       { pointer: '/e^f', expected: 3 },
       { pointer: '/g|h', expected: 4 },
       { pointer: '/i\\j', expected: 5 },
-      { pointer: '/k\"l', expected: 6 },
+      { pointer: '/k\"l', expected: 6 },    // eslint-disable-line no-useless-escape
       { pointer: '/ ', expected: 7 },
       { pointer: '/m~0n', expected: 8 },
       { pointer: '#', expected: testDoc },
