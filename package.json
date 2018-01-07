@@ -2,17 +2,12 @@
   "name": "js-pointer",
   "version": "2.1.0",
   "description": "Tiny, spec compliant JSON Pointer RFC 6901 implementation.",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "precompile": "rm -f dist/*",
-    "compile": "babel lib --out-dir dist",
     "lint": "eslint 'lib/**' 'test/**'",
-    "test": "nyc --check-coverage --require babel-register mocha ./test",
-    "test-dist": "TEST_TARGET=dist mocha --require babel-register",
-    "test-with-coverage": "BABEL_ENV=coverage nyc --require babel-register --source-map false --instrument false npm run test-dist",
+    "test": "nyc --check-coverage mocha ./test",
     "watch": "chokidar 'lib/*.js' 'test/*.js' -c 'npm run lint && npm test'",
-    "ci": "npm run lint && npm run compile && npm run test-with-coverage",
-    "prepublish": "npm run compile",
+    "ci": "npm run lint && npm run test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -26,24 +21,19 @@
     "json-schema"
   ],
   "engines": {
-    "node": ">= 4"
+    "node": ">= 6"
   },
   "author": "Toboid",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.8.0",
-    "babel-core": "^6.7.7",
-    "babel-plugin-istanbul": "^4.0.0",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-register": "^6.11.5",
     "chai": "^4.0.1",
     "chokidar-cli": "^1.2.0",
     "coveralls": "^3.0.0",
     "eslint": "^4.15.0",
     "eslint-config-toboid": "^2.0.0",
     "lodash": "^4.17.1",
-    "mocha": "^4.0.0",
+    "mocha": "^3.4.1",
     "nyc": "^11.0.2"
   }
 }
