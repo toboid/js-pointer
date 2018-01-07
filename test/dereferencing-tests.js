@@ -1,7 +1,6 @@
 'use strict';
 
-const testTarget = process.env.TEST_TARGET || 'lib';
-const jsonPointer = require('../' + testTarget);
+const jsonPointer = require('../lib');
 const expect = require('chai').expect;
 
 describe('get()', function () {
