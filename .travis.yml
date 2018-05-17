@@ -3,6 +3,7 @@ node_js:
   - "9"
   - "8"
   - "6"
+  - "10"
 dist: trusty
 script: npm run ci
 after_success: npm run coveralls
