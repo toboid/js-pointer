@@ -1,6 +1,6 @@
 {
   "name": "js-pointer",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Tiny, spec compliant JSON Pointer RFC 6901 implementation.",
   "main": "lib/index.js",
   "scripts": {
