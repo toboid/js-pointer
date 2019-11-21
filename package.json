@@ -8,8 +8,8 @@
     "test": "nyc --check-coverage mocha ./test",
     "watch": "chokidar 'lib/*.js' 'test/*.js' -c 'npm run lint && npm test'",
     "ci": "npm run lint && npm run test",
-    "lcov": "nyc report --reporter=text-lcov",
-    "coveralls": "npm run lcov | coveralls"
+    "lcov": "mkdir -p coverage && nyc report --reporter=text-lcov > coverage/lcov.info",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
