@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - uses: actions/checkout@v1
-      - name: Install
-        run: npm ci
+      - name: Install deps
+        run: npm install
       - name: Run linting
         run: npm run lint
       - name: Run tests
