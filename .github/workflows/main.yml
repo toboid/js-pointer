@@ -33,6 +33,6 @@ jobs:
         with:
           node-version: '12'
       - name: Install
-        run: npm ci
+        run: npm install
       - name: coverage
         run: npm run coveralls
