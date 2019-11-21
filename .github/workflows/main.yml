@@ -24,7 +24,7 @@ jobs:
       - name: Run tests
         run: npm run test
   coverage:
-    if: ${{ github.ref == 'master' }}
+    if: github.ref == 'master'
     needs: test
     runs-on: ubuntu-latest
     steps:
