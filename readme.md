@@ -1,11 +1,4 @@
 # js-pointer
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/toboid/js-pointer.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/toboid/js-pointer.svg?branch=master)](https://travis-ci.org/toboid/js-pointer)
-[![Coverage Status](https://coveralls.io/repos/github/toboid/js-pointer/badge.svg?branch=master)](https://coveralls.io/github/toboid/js-pointer?branch=master)
-[![Dependencies](https://david-dm.org/toboid/js-pointer.svg)](https://github.com/toboid/js-pointer/blob/master/package.json)
-[![npm version](https://badge.fury.io/js/js-pointer.svg)](https://badge.fury.io/js/js-pointer)
-
 Tiny, spec compliant implementation of the JSON Pointer spec [RFC 6901](https://tools.ietf.org/html/rfc6901) with 100% test coverage and no dependencies.
 
 ## Getting started
