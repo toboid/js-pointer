@@ -27,7 +27,6 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^6.6.0",
-    "eslint-config-toboid": "^2.0.0",
-    "lodash": "^4.17.15"
+    "eslint-config-toboid": "^2.0.0"
   }
 }
