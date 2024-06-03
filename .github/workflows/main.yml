@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [8, 10, 12]
+        node: [18, 20, 22]
     steps:
       - uses: actions/setup-node@v1
         with:
@@ -23,22 +23,3 @@ jobs:
         run: npm run lint
       - name: Run tests
         run: npm run test
-  coverage:
-    if: github.ref == 'refs/heads/master'
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - name: Install
-        run: npm install
-      - name: Run tests
-        run: npm run test
-      - name: Generate lcov
-        run: npm run lcov
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
