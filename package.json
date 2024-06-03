@@ -1,15 +1,14 @@
 {
   "name": "js-pointer",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "Tiny, spec compliant JSON Pointer RFC 6901 implementation.",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint 'lib/**' 'test/**'",
-    "test": "nyc --check-coverage mocha ./test",
-    "watch": "chokidar 'lib/*.js' 'test/*.js' -c 'npm run lint && npm test'",
-    "ci": "npm run lint && npm run test",
-    "lcov": "mkdir -p coverage && nyc report --reporter=text-lcov > coverage/lcov.info",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "test": "node --test test/*",
+    "coverage": "node --test --experimental-test-coverage test/*",
+    "watch": "node --test --watch .",
+    "ci": "npm run lint && npm run coverage"
   },
   "repository": {
     "type": "git",
@@ -22,19 +21,12 @@
     "json-schema"
   ],
   "engines": {
-    "node": ">= 6"
+    "node": ">= 18"
   },
   "author": "Toboid",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
-    "chai": "^4.1.2",
-    "chokidar-cli": "^2.0.0",
-    "coveralls": "^3.0.3",
     "eslint": "^6.6.0",
-    "eslint-config-toboid": "^2.0.0",
-    "lodash": "^4.17.15",
-    "mocha": "^7.0.1",
-    "nyc": "^15.0.0"
+    "eslint-config-toboid": "^2.0.0"
   }
 }

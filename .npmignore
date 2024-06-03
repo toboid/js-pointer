@@ -3,8 +3,10 @@ lib/
 test/
 coverage/
 npm-debug.log
-.travis.yml
 .babelrc
 .npmignore
+.eslintrc.yml
 .nyc_output/
 js-pointer-logo.sketch
+.devcontainer/
+.github/
