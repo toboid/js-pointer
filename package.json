@@ -8,7 +8,7 @@
     "test": "node --test test/*",
     "coverage": "node --test --experimental-test-coverage test/*",
     "watch": "node --test --watch .",
-    "ci": "npm run lint && npm run test"
+    "ci": "npm run lint && npm run coverage"
   },
   "repository": {
     "type": "git",
