@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint 'lib/**' 'test/**'",
-    "test": "node --test .",
-    "coverage": "node --test --experimental-test-coverage .",
+    "test": "node --test test/*",
+    "coverage": "node --test --experimental-test-coverage test/*",
     "watch": "node --test --watch .",
     "ci": "npm run lint && npm run test"
   },
